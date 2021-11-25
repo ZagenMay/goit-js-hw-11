@@ -14,7 +14,7 @@ const refs = {
 let imageValue = '';
 hideButton(refs.loadMoreButton);
 
-refs.form.addEventListener('submit', throttle(onSearch, 500));
+refs.form.addEventListener('submit', throttle(onSearch, 2000));
 refs.loadMoreButton.addEventListener('click', onLoadMore);
 
 function clearGallery() {
