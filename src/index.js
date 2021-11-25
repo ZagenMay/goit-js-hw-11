@@ -3,6 +3,7 @@ import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { fetchGallery } from './fetchGallery';
+import throttle from 'lodash.throttle';
 
 const refs = {
   form: document.querySelector('#search-form'),
@@ -13,7 +14,7 @@ const refs = {
 let imageValue = '';
 hideButton(refs.loadMoreButton);
 
-refs.form.addEventListener('submit', onSearch);
+refs.form.addEventListener('submit', throttle(onSearch, 500));
 refs.loadMoreButton.addEventListener('click', onLoadMore);
 
 function clearGallery() {
